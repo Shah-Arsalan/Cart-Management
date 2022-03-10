@@ -1,7 +1,7 @@
 import { useCart } from "./cart-context";
 
 const CartPageCard = ({ ele }) => {
-  const { id, name, image, price, quantity } = ele;
+  const { name, image, price, quantity } = ele;
   const { ProductQuantityHandler } = useCart();
   return (
     <div>
