@@ -1,0 +1,30 @@
+@import url("https://wanderer-store.netlify.app/WebPages/cart/cart.css");
+@import url("https://frid-ui.netlify.app/main.css");
+@import url("https://wanderer-store.netlify.app/main.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css");
+
+.App {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+  text-align: center;
+  gap: 1rem;
+}
+
+.icons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.fas {
+  color: black;
+}
+
+.product-card-container {
+  display: flex;
+  flex-direction: column;
+}
