@@ -11,45 +11,50 @@ const CartPage = () => {
   console.log(priceOfItems);
   return (
     <div>
-      <div className="cart-heading">
-        <h1 className="small-heading-text flex-justify-center margin-1rem">
-          My cart({numberOfItems})
-        </h1>
-      </div>
-
-      <div className="price-card">
-        <div className="card-heading">
-          <h2>Price Details</h2>
-        </div>
-
-        <div className="price-calculation">
-          <div className="price-components display-flex">
-            <p>Price({numberOfItems})</p>
-            <p> {priceOfItems}</p>
+      {cartProducts.length === 0 ? (
+        <h1> No items in your Cart ... </h1>
+      ) : (
+        <>
+          {" "}
+          <div className="cart-heading">
+            <h1 className="small-heading-text flex-justify-center margin-1rem">
+              My cart({numberOfItems})
+            </h1>
           </div>
-          <div className="price-components display-flex">
-            <p>Discount</p>
-            <p>100</p>
+          <div className="price-card">
+            <div className="card-heading">
+              <h2>Price Details</h2>
+            </div>
+
+            <div className="price-calculation">
+              <div className="price-components display-flex">
+                <p>Price({numberOfItems})</p>
+                <p> {priceOfItems}</p>
+              </div>
+              <div className="price-components display-flex">
+                <p>Discount</p>
+                <p>100</p>
+              </div>
+              <div className="price-components display-flex">
+                <p>Delivery</p>
+                <p>200</p>
+              </div>
+            </div>
+
+            <div className="total-amount display-flex">
+              <h3>Toatal Amount</h3>
+              <p>{priceOfItems - 100 + 200}</p>
+            </div>
+
+            <p>you will save {100} in this order</p>
+
+            <button className="primary-button">Place order</button>
           </div>
-          <div className="price-components display-flex">
-            <p>Delivery</p>
-            <p>200</p>
-          </div>
-        </div>
-
-        <div className="total-amount display-flex">
-          <h3>Toatal Amount</h3>
-          <p>{priceOfItems - 100 + 200}</p>
-        </div>
-
-        <p>you will save {100} in this order</p>
-
-        <button className="primary-button">Place order</button>
-      </div>
-
-      {cartProducts.map((ele) => {
-        return <CartPageCard ele={ele} />;
-      })}
+          {cartProducts.map((ele) => {
+            return <CartPageCard ele={ele} />;
+          })}
+        </>
+      )}
     </div>
   );
 };

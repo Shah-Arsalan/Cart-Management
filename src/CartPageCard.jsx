@@ -2,7 +2,8 @@ import { useCart } from "./cart-context";
 
 const CartPageCard = ({ ele }) => {
   const { name, image, price, quantity } = ele;
-  const { ProductQuantityHandler } = useCart();
+  const { ProductQuantityHandler, deleteProduct } = useCart();
+
   return (
     <div>
       <div className="cart-container margin-1rem">
@@ -42,7 +43,11 @@ const CartPageCard = ({ ele }) => {
                 <button className="horizontal-card-buttons button-cart">
                   Move to wishlist
                 </button>
-                <button className="horizontal-card-buttons button-cart">
+
+                <button
+                  onClick={() => deleteProduct(ele)}
+                  className="horizontal-card-buttons button-cart"
+                >
                   Remove from cart
                 </button>
               </div>

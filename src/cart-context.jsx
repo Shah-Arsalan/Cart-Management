@@ -32,7 +32,23 @@ const CartProvider = ({ children }) => {
         })
       );
     } else if (flag === "decrease") {
+      if (ele.quantity > 1) {
+        setCartProducts(
+          cartProducts.map((element) => {
+            return ele.id === element.id
+              ? { ...ele, quantity: ele.quantity - 1 }
+              : element;
+          })
+        );
+      }
     }
+  };
+
+  const deleteProduct = (ele) => {
+    const newProductlist = cartProducts.filter(
+      (element) => element.id !== ele.id
+    );
+    setCartProducts(newProductlist);
   };
   return (
     <cartContext.Provider
@@ -40,7 +56,8 @@ const CartProvider = ({ children }) => {
         numberOfItems,
         itemsHandler,
         cartProducts,
-        ProductQuantityHandler
+        ProductQuantityHandler,
+        deleteProduct
       }}
     >
       {children}
